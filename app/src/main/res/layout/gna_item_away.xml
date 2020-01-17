@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/invisibleView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textAwayMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_24dp"
+        android:fontFamily="@font/poppins_bold"
+        android:includeFontPadding="false"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_20sp"
+        app:layout_constraintLeft_toRightOf="@+id/invisibleView"
+        tools:text="54'" />
+
+    <TextView
+        android:id="@+id/textAwayScorer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_6dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textAwayMinute"
+        app:layout_constraintLeft_toRightOf="@+id/textAwayMinute"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textAwayMinute"
+        tools:text="Mohammed Salah" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

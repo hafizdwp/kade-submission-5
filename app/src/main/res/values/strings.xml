@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">LeagueKeeper 1.0</string>
+
+    <string name="favorite">Favorite</string>
+    <string name="home">Home</string>
+    <string name="double_exit">Click back twice to exit</string>
+    <string name="goals_and_assists"><![CDATA[Goals & Assists]]></string>
+    <string name="ok">OK</string>
+    <string name="match_favorited">Match favorited</string>
+    <string name="match_unfavorited">Match removed from favorite</string>
+    <string name="favorite_is_empty">Your favorited match will shown here…</string>
+    <string name="upcoming_matches">Upcoming Matches</string>
+    <string name="see_all">See all</string>
+    <string name="recent_matches">Recent Matches</string>
+    <string name="leagues">Leagues</string>
+    <string name="search">Search…</string>
+    <string name="search_match">Search Match</string>
+    <string name="search_label">Find match with team keyword ex: \'Everton\'</string>
+</resources>

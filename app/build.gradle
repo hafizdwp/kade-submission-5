@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+
+    defaultConfig {
+        applicationId "me.hafizdwp.kade_submission_5"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix ".debug"
+
+            buildConfigField "String", "BASE_URL", '"https://thesportsdb.com/api/v1/json/1/"'
+
+            debuggable true
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Dependencies for Android Support
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$kotlinExtensionsVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidXLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidXLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc02"
+
+    // Dependencies for Paging
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+
+    // Dependencies for Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion") {
+        exclude group: "androidx"
+    }
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Dependencies for Glide Transformation
+    implementation "jp.wasabeef:glide-transformations:$glideTransformationVersion"
+
+    // Dependencies for Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // Dependencies for OkHttp3
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // Dependencies for Retrofit2 Kotlin Coroutine Adapter
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutineAdapterVersion"
+
+    // Dependencies for Shimmer
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
+    // Other Dependencies
+    implementation 'com.iarcuschin:simpleratingbar:0.1.5'
+    implementation 'com.ogaclejapan.smarttablayout:library:2.0.0@aar'
+    implementation 'com.readystatesoftware.chuck:library:1.1.0'
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "androidx.arch.core:core-testing:$archLifecycleVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinCoroutineVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    //
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "androidx.test:rules:$androidXTestVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+
+    // Dependencies for Idle Resource
+    implementation "androidx.test.espresso:espresso-idling-resource:$idleResourceVersion"
+
+    // Anko SQLite
+    implementation "org.jetbrains.anko:anko-sqlite:0.10.8"
+}

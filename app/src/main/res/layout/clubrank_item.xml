@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dimens_16dp"
+    android:paddingTop="@dimen/dimens_8dp"
+    android:paddingRight="@dimen/dimens_16dp"
+    android:paddingBottom="@dimen/dimens_8dp">
+
+    <TextView
+        android:id="@+id/textRank"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/imgBadge"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="10" />
+
+    <ImageView
+        android:id="@+id/imgBadge"
+        android:layout_width="@dimen/dimens_36dp"
+        android:layout_height="@dimen/dimens_36dp"
+        android:layout_marginStart="@dimen/dimens_8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintLeft_toRightOf="@+id/textRank"
+        app:layout_constraintRight_toLeftOf="@+id/textClubName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/dummy_badge_1" />
+
+    <TextView
+        android:id="@+id/textClubName"
+        android:layout_width="@dimen/dimens_116dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_16dp"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/imgBadge"
+        app:layout_constraintRight_toLeftOf="@+id/textPlayed"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Manchester United" />
+
+    <TextView
+        android:id="@+id/textPlayed"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toRightOf="@+id/textClubName"
+        app:layout_constraintRight_toLeftOf="@+id/textWin"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="16" />
+
+    <TextView
+        android:id="@+id/textWin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toRightOf="@+id/textPlayed"
+        app:layout_constraintRight_toLeftOf="@+id/textLose"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="15" />
+
+    <TextView
+        android:id="@+id/textLose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toRightOf="@+id/textWin"
+        app:layout_constraintRight_toLeftOf="@+id/textDraw"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/textDraw"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:includeFontPadding="false"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toRightOf="@+id/textLose"
+        app:layout_constraintRight_toLeftOf="@+id/textPoint"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/textPoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textColor="@color/fontPrimary"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBadge"
+        app:layout_constraintLeft_toRightOf="@+id/textDraw"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgBadge"
+        tools:text="46" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

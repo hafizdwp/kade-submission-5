@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimens_12dp"
+    android:layout_marginBottom="@dimen/dimens_12dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    app:cardCornerRadius="@dimen/dimens_6dp"
+    app:cardElevation="0dp"
+    tools:ignore="ContentDescription">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimens_12dp">
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textColor="@color/fontPrimary"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Saturday, 7 Dec 2019" />
+
+        <TextView
+            android:id="@+id/textStadium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_2dp"
+            android:layout_marginBottom="@dimen/dimens_8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/barrierTop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDate"
+            tools:text="Vitality Stadium, Bournemouth" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierTop"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="imgBadgeLeft,imgBadgeRight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierBottom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="textHomeName,textAwayName"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/imgBadgeLeft"
+            android:layout_width="@dimen/dimens_76dp"
+            android:layout_height="@dimen/dimens_76dp"
+            android:layout_marginStart="@dimen/dimens_12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textScore"
+            app:layout_constraintTop_toBottomOf="@+id/barrierTop"
+            tools:src="@drawable/dummy_badge_1" />
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_16dp"
+            android:layout_marginRight="@dimen/dimens_16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_28sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBadgeLeft"
+            app:layout_constraintLeft_toRightOf="@+id/imgBadgeLeft"
+            app:layout_constraintRight_toLeftOf="@+id/imgBadgeRight"
+            app:layout_constraintTop_toTopOf="@+id/imgBadgeLeft"
+            tools:text="0  :  3" />
+
+        <TextView
+            android:id="@+id/textHomeName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dimens_16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_16sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textAwayName"
+            app:layout_constraintTop_toBottomOf="@+id/imgBadgeLeft"
+            tools:text="Manchester City" />
+
+        <TextView
+            android:id="@+id/textAwayName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_16dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:textAlignment="textEnd"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_16sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@+id/textHomeName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBadgeRight"
+            tools:text="Manchester United" />
+
+        <ImageView
+            android:id="@+id/imgBadgeRight"
+            android:layout_width="@dimen/dimens_76dp"
+            android:layout_height="@dimen/dimens_76dp"
+            android:layout_marginEnd="@dimen/dimens_12dp"
+            app:layout_constraintLeft_toRightOf="@+id/textScore"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrierTop"
+            tools:src="@drawable/dummy_badge_2" />
+
+        <TextView
+            android:id="@+id/textLeagueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrierBottom"
+            tools:text="Barclays Premiere League" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>

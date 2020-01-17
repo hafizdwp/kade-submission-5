@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimens_12dp"
+        android:layout_marginTop="@dimen/dimens_12dp"
+        android:layout_marginRight="@dimen/dimens_12dp"
+        android:background="@drawable/bg_form_round"
+        android:drawableEnd="@drawable/ic_search"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="@string/search"
+        android:imeOptions="actionSearch"
+        android:maxLines="1"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingLeft="@dimen/dimens_24dp"
+        android:paddingTop="@dimen/dimens_12dp"
+        android:paddingRight="@dimen/dimens_24dp"
+        android:paddingBottom="@dimen/dimens_12dp"
+        android:textSize="@dimen/size_14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <me.hafizdwp.kade_submission_5.utils.widget.MyProgressView
+        android:id="@+id/myProgressView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimens_12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+</LinearLayout>

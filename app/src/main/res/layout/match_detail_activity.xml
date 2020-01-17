@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
+
+        <ImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_24dp"
+            android:layout_marginEnd="@dimen/dimens_24dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_love" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_20dp"
+            android:layout_marginRight="@dimen/dimens_20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBack"
+            app:layout_constraintLeft_toRightOf="@+id/imgBack"
+            app:layout_constraintRight_toLeftOf="@+id/imgFavorite"
+            app:layout_constraintTop_toTopOf="@+id/imgBack"
+            tools:text="BOU v LFC" />
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitle"
+            tools:text="Saturday, 7 Dec 2019" />
+
+        <TextView
+            android:id="@+id/textStadium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/fontSecondary"
+            android:textSize="@dimen/size_14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textDate"
+            tools:text="Vitality Stadium, Bournermouth" />
+
+        <!-- Badges -->
+        <ImageView
+            android:id="@+id/imgBadgeLeft"
+            android:layout_width="@dimen/dimens_86dp"
+            android:layout_height="@dimen/dimens_86dp"
+            android:layout_marginStart="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textStadium"
+            tools:src="@drawable/dummy_badge_1" />
+
+        <ImageView
+            android:id="@+id/imgBadgeRight"
+            android:layout_width="@dimen/dimens_86dp"
+            android:layout_height="@dimen/dimens_86dp"
+            android:layout_marginTop="@dimen/dimens_8dp"
+            android:layout_marginEnd="@dimen/dimens_24dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textStadium"
+            tools:src="@drawable/dummy_badge_2" />
+
+        <TextView
+            android:id="@+id/textScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgBadgeRight"
+            app:layout_constraintLeft_toRightOf="@+id/imgBadgeLeft"
+            app:layout_constraintRight_toLeftOf="@+id/imgBadgeRight"
+            app:layout_constraintTop_toTopOf="@+id/imgBadgeLeft"
+            tools:text="0  :  3" />
+
+        <!-- Goals n Assists -->
+        <TextView
+            android:id="@+id/textGnaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="@string/goals_and_assists"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBadgeLeft" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGna"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_8dp"
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/dimens_24dp"
+            android:paddingRight="@dimen/dimens_24dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textGnaLabel" />
+
+        <TextView
+            android:id="@+id/textGoalsStrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:text="-"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerGna" />
+
+
+        <!-- Upcoming Matches -->
+        <TextView
+            android:id="@+id/textUpMatchesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:text="Upcoming Matches"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHeader" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerUpMatches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_12dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textUpMatchesLabel" />
+
+
+        <!-- Club's Rank -->
+        <TextView
+            android:id="@+id/textClubRankLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimens_24dp"
+            android:layout_marginTop="@dimen/dimens_24dp"
+            android:fontFamily="@font/poppins_bold"
+            android:includeFontPadding="false"
+            android:text="Club Ranks"
+            android:textColor="@color/fontPrimary"
+            android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerUpMatches" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerClubRank"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_12dp"
+            android:nestedScrollingEnabled="false"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textClubRankLabel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
