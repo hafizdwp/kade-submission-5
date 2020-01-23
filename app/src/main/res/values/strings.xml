@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LeagueKeeper 1.0</string>
+    <string name="app_name">LeagueKeeper</string>
 
     <string name="favorite">Favorite</string>
     <string name="home">Home</string>

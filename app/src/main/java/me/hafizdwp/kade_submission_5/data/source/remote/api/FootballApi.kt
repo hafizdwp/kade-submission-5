@@ -14,14 +14,19 @@ import retrofit2.http.Query
  **/
 interface FootballApi {
 
+    @GET("lookupteam.php")
+    suspend fun getTeamDetail(
+            @Query("id") teamId: Int
+    ): BaseResponse<List<TeamResponse>>
+
     @GET("searchteams.php")
     suspend fun getTeamsByKeyword(
-        @Query("t") keyword: String
+            @Query("t") keyword: String
     ): BaseResponse<List<TeamResponse>>
 
     @GET("searchevents.php")
     suspend fun getMatchesByKeyword(
-        @Query("e") keyword: String
+            @Query("e") keyword: String
     ): BaseResponse<List<MatchResponse>>
 
     @GET("lookuptable.php")

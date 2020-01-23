@@ -24,7 +24,7 @@ import me.hafizdwp.kade_submission_5.utils.extentions.visible
 class MatchDetailActivity : BaseActivity() {
 
     companion object {
-        const val EXTRA_MATCH_ID = "ex_match_id"
+        private const val EXTRA_MATCH_ID = "ex_match_id"
 
         fun startActivity(context: Context,
                           matchId: Int) {

@@ -11,6 +11,7 @@ import me.hafizdwp.kade_submission_5.ui.home.HomeViewModel
 import me.hafizdwp.kade_submission_5.ui.league.LeagueDetailViewModel
 import me.hafizdwp.kade_submission_5.ui.matches.MatchDetailViewModel
 import me.hafizdwp.kade_submission_5.ui.search.SearchViewModel
+import me.hafizdwp.kade_submission_5.ui.team.TeamDetailViewModel
 
 /**
  * @author hafizdwp
@@ -35,6 +36,8 @@ class ViewModelFactory private constructor(
                         SearchViewModel(mApplication, mRepository)
                     isAssignableFrom(FavoriteViewModel::class.java) ->
                         FavoriteViewModel(mApplication, mRepository)
+                    isAssignableFrom(TeamDetailViewModel::class.java) ->
+                        TeamDetailViewModel(mApplication, mRepository)
 
                     else ->
                         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

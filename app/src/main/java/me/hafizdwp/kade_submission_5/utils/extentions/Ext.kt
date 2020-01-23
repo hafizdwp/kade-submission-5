@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
@@ -275,5 +277,11 @@ fun largeLog(tag: String, content: String) {
         largeLog(tag, content.substring(4000))
     } else {
         Log.d(tag, content)
+    }
+}
+
+fun TabLayout.disableClickTablayout(){
+    for (i in 0 until this.tabCount){
+        (this.getChildAt(0) as ViewGroup).getChildAt(i).isEnabled = false
     }
 }

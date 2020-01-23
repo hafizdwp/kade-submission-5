@@ -16,12 +16,11 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import me.hafizdwp.kade_submission_5.R
 import me.hafizdwp.kade_submission_5.base.BaseFragment
-import me.hafizdwp.kade_submission_5.data.model.LeagueData
 import me.hafizdwp.kade_submission_5.data.source.remote.responses.MatchResponse
 import me.hafizdwp.kade_submission_5.data.source.remote.responses.TeamResponse
 import me.hafizdwp.kade_submission_5.ui.MainActivity
-import me.hafizdwp.kade_submission_5.ui.home.HomeActionListener
 import me.hafizdwp.kade_submission_5.ui.matches.MatchDetailActivity
+import me.hafizdwp.kade_submission_5.ui.team.TeamDetailActivity
 import me.hafizdwp.kade_submission_5.utils.ResultState
 import me.hafizdwp.kade_submission_5.utils.extentions.log
 import me.hafizdwp.kade_submission_5.utils.extentions.obtainViewModel
@@ -34,7 +33,7 @@ import me.hafizdwp.kade_submission_5.utils.extentions.withArgs
  * @author hafizdwp
  * 07/01/2020
  **/
-class SearchFragment : BaseFragment<MainActivity>(), HomeActionListener {
+class SearchFragment : BaseFragment<MainActivity>(), SearchActionListener {
 
     companion object {
         fun newInstance() = SearchFragment().withArgs { }
@@ -209,7 +208,7 @@ class SearchFragment : BaseFragment<MainActivity>(), HomeActionListener {
         MatchDetailActivity.startActivity(mContext, (data.idEvent ?: "0").toInt())
     }
 
-    override fun onLeagueClick(data: LeagueData) {
-        // Not in use
+    override fun onTeamClick(data: TeamResponse) {
+        TeamDetailActivity.startActivity(mContext, (data.idTeam ?: "0").toInt())
     }
 }

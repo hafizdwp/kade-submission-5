@@ -29,6 +29,37 @@ open class MyRepository {
     val localRepository = MyLocalRepository.getInstance()
 
 
+    // anjis jagoan
+    private inline fun <reified T : Any, reified RS : ResultState<T>> asLiveData(
+            crossinline repoFunction: suspend () -> RS): LiveData<ResultState<T>> {
+
+        EspressoIdlingResource.increment()
+        return liveData {
+            emit(ResultState.Loading)
+            val result = repoFunction()
+            val resultLive = MutableLiveData<ResultState<T>>()
+            when (result) {
+                is ResultState.Success<*> -> {
+                    resultLive.value = result
+                    emitSource(resultLive)
+                    EspressoIdlingResource.decrement()
+                }
+
+                is ResultState.Error -> {
+                    emit(result)
+                    emitSource(resultLive)
+                    EspressoIdlingResource.decrement()
+                }
+            }
+        }
+    }
+
+    fun getTeamDetail(teamId: Int): LiveData<ResultState<List<TeamResponse>>> {
+        return asLiveData {
+            remoteRepository.getTeamDetail(teamId)
+        }
+    }
+
     fun saveOrDeleteFavorite(matchInJson: String): MatchResponse.FavoriteState? {
         return localRepository.saveOrDeleteFavorite(matchInJson)
     }

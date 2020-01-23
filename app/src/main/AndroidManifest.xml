@@ -25,6 +25,7 @@
         <activity android:name="me.hafizdwp.kade_submission_5.ui.league.LeagueDetailActivity" />
         <activity android:name="me.hafizdwp.kade_submission_5.ui.matches.MatchDetailActivity" />
         <activity android:name="me.hafizdwp.kade_submission_5.utils.test.SingleFragmentActivity" />
+        <activity android:name=".ui.team.TeamDetailActivity" />
 
     </application>
 

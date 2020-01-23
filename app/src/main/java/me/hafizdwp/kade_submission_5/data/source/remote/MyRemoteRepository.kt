@@ -22,6 +22,12 @@ class MyRemoteRepository {
     val footballApi by lazy { ApiServiceFactory.build<FootballApi>() }
 
 
+    suspend fun getTeamDetail(teamId: Int): ResultState<List<TeamResponse>> {
+        return fetchTeam {
+            footballApi.getTeamDetail(teamId)
+        }
+    }
+
     suspend fun getTeamsByKeyword(query: String): ResultState<List<TeamResponse>> {
         return fetchTeam {
             footballApi.getTeamsByKeyword(query)

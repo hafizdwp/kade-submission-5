@@ -13,7 +13,7 @@ import me.hafizdwp.kade_submission_5.ui.home.HomeActionListener
  * 17/01/2020
  **/
 class SearchTeamAdapter(val items: List<TeamResponse>,
-                        val listener: HomeActionListener) : BaseRecyclerAdapter<TeamResponse>() {
+                        val listener: SearchActionListener) : BaseRecyclerAdapter<TeamResponse>() {
 
     override val bindItemLayoutRes: Int?
         get() = R.layout.team_item
@@ -27,6 +27,10 @@ class SearchTeamAdapter(val items: List<TeamResponse>,
                 .into(imgView)
 
             textName.text = model.strTeam
+
+            rootView.setOnClickListener {
+                listener.onTeamClick(model)
+            }
         }
     }
 }

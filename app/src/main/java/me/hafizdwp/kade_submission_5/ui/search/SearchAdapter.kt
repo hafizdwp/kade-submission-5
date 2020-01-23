@@ -13,7 +13,7 @@ import me.hafizdwp.kade_submission_5.ui.home.HomeActionListener
  * 07/01/2020
  **/
 class SearchAdapter(val items: List<MatchResponse>,
-                    val listener: HomeActionListener) : BaseRecyclerAdapter<MatchResponse>() {
+                    val listener: SearchActionListener) : BaseRecyclerAdapter<MatchResponse>() {
 
     override val bindItemLayoutRes: Int?
         get() = R.layout.matches_item
