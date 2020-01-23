@@ -19,7 +19,7 @@ import me.hafizdwp.kade_submission_5.utils.extentions.withArgs
  * @author hafizdwp
  * 15/12/2019
  **/
-class HomeFragment : BaseFragment(), HomeActionListener {
+class HomeFragment : BaseFragment<MainActivity>(), HomeActionListener {
 
     companion object {
         fun newInstance() = HomeFragment().withArgs { }

@@ -1,48 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/grey"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etSearch"
+    <!-- Search bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dimens_12dp"
-        android:layout_marginTop="@dimen/dimens_12dp"
-        android:layout_marginRight="@dimen/dimens_12dp"
-        android:background="@drawable/bg_form_round"
-        android:drawableEnd="@drawable/ic_search"
-        android:fontFamily="@font/poppins_regular"
-        android:hint="@string/search"
-        android:imeOptions="actionSearch"
-        android:maxLines="1"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        android:paddingLeft="@dimen/dimens_24dp"
         android:paddingTop="@dimen/dimens_12dp"
-        android:paddingRight="@dimen/dimens_24dp"
-        android:paddingBottom="@dimen/dimens_12dp"
-        android:textSize="@dimen/size_14sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingBottom="@dimen/dimens_12dp">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimens_24dp"
+            android:layout_height="@dimen/dimens_24dp"
+            android:layout_marginStart="@dimen/dimens_12dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimens_12dp"
+            android:layout_marginRight="@dimen/dimens_12dp"
+            android:background="@drawable/bg_form_round"
+            android:drawableEnd="@drawable/ic_search"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/search"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="@dimen/dimens_24dp"
+            android:paddingTop="@dimen/dimens_12dp"
+            android:paddingRight="@dimen/dimens_24dp"
+            android:paddingBottom="@dimen/dimens_12dp"
+            android:textSize="@dimen/size_14sp"
+            app:layout_constraintBottom_toTopOf="@+id/textResult"
+            app:layout_constraintLeft_toRightOf="@+id/imgBack"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textResult"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimens_6dp"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:text="-"
+            android:textColor="#1d1d1d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/etSearch"
+            app:layout_constraintRight_toRightOf="@+id/etSearch"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch"
+            tools:text="5 Matches and 2 Teams found!" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <me.hafizdwp.kade_submission_5.utils.widget.MyProgressView
         android:id="@+id/myProgressView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSearch"
+    <!-- Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dimens_12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Matches -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutMatches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSearch">
+
+                <TextView
+                    android:id="@+id/textMatchesLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens_24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/matches"
+                    android:textColor="@color/fontPrimary"
+                    android:textSize="@dimen/size_24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_12dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintTop_toBottomOf="@+id/textMatchesLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Teams -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutTeams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etSearch">
+
+                <TextView
+                    android:id="@+id/textTeamLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimens_24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:includeFontPadding="false"
+                    android:text="@string/teams"
+                    android:textColor="@color/fontPrimary"
+                    android:textSize="@dimen/size_24sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimens_12dp"
+                    android:nestedScrollingEnabled="false"
+                    android:paddingRight="@dimen/dimens_12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/textTeamLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

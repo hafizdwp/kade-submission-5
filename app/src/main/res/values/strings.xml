@@ -16,4 +16,6 @@
     <string name="search">Search…</string>
     <string name="search_match">Search Match</string>
     <string name="search_label">Find match with team keyword ex: \'Everton\'</string>
+    <string name="matches">Matches</string>
+    <string name="teams">Teams</string>
 </resources>

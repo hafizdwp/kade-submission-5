@@ -28,6 +28,7 @@ open class MyRepository {
     val remoteRepository = MyRemoteRepository.getInstance()
     val localRepository = MyLocalRepository.getInstance()
 
+
     fun saveOrDeleteFavorite(matchInJson: String): MatchResponse.FavoriteState? {
         return localRepository.saveOrDeleteFavorite(matchInJson)
     }
@@ -38,6 +39,28 @@ open class MyRepository {
 
     fun getAllFavorites(): List<MatchResponse> {
         return localRepository.getAllFavorites()
+    }
+
+    fun getTeamsByKeyword(query: String): LiveData<ResultState<List<TeamResponse>>> {
+        EspressoIdlingResource.increment()
+        return liveData {
+            emit(ResultState.Loading)
+            val result = remoteRepository.getTeamsByKeyword(query)
+            val resultLive = MutableLiveData<ResultState<List<TeamResponse>>>()
+            when (result) {
+                is ResultState.Success -> {
+                    resultLive.value = result
+                    emitSource(resultLive)
+                    EspressoIdlingResource.decrement()
+                }
+
+                is ResultState.Error -> {
+                    emit(result)
+                    emitSource(resultLive)
+                    EspressoIdlingResource.decrement()
+                }
+            }
+        }
     }
 
     fun getMatchesByKeyword(query: String): LiveData<ResultState<List<MatchResponse>>> {
@@ -169,10 +192,6 @@ open class MyRepository {
             val resultLive = MutableLiveData<ResultState<LeagueDetailResponse>>()
             when (result) {
                 is ResultState.Success -> {
-
-                    log("leagueDetail: ${result.data[0]}")
-                    log("leagueDetail JSON: ${result.data[0].toJson()}")
-
                     resultLive.value = ResultState.Success(result.data[0])
                     emitSource(resultLive)
                     EspressoIdlingResource.decrement()
@@ -224,9 +243,6 @@ open class MyRepository {
             val resultLive = MutableLiveData<ResultState<MatchResponse>>()
             when (result) {
                 is ResultState.Success -> {
-
-                    log("matchDetails: ${result.data[0]}")
-                    log("matchDetails JSON: ${result.data[0].toJson()}")
 
                     var updatedMatchData: MatchResponse? = null
                     withContext(Dispatchers.Default) {

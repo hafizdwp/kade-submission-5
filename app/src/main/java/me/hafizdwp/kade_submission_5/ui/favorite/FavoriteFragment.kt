@@ -1,6 +1,7 @@
 package me.hafizdwp.kade_submission_5.ui.favorite
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.readystatesoftware.chuck.internal.ui.MainActivity
 import kotlinx.android.synthetic.main.favorite_fragment.*
 import me.hafizdwp.kade_submission_5.R
 import me.hafizdwp.kade_submission_5.base.BaseFragment
@@ -18,7 +19,7 @@ import me.hafizdwp.kade_submission_5.utils.extentions.withArgs
  * @author hafizdwp
  * 15/12/2019
  **/
-class FavoriteFragment : BaseFragment(), HomeActionListener {
+class FavoriteFragment : BaseFragment<MainActivity>(), HomeActionListener {
 
     companion object {
         fun newInstance() = FavoriteFragment().withArgs { }

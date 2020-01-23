@@ -1,6 +1,8 @@
 package me.hafizdwp.kade_submission_5.data
 
+import com.readystatesoftware.chuck.ChuckInterceptor
 import me.hafizdwp.kade_submission_5.BuildConfig
+import me.hafizdwp.kade_submission_5.MyApp
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -16,7 +18,7 @@ object ApiServiceFactory {
     val mClient: OkHttpClient.Builder = OkHttpClient.Builder()
             .apply {
                 if (BuildConfig.DEBUG) {
-//                    addInterceptor(ChuckInterceptor(MyApp.getContext()))
+                    addInterceptor(ChuckInterceptor(MyApp.getContext()))
                 }
             }
             .addInterceptor(

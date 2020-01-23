@@ -6,11 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 
-abstract class BaseFragment : Fragment() {
+abstract class BaseFragment<T: AppCompatActivity> : Fragment() {
 
     @get:LayoutRes
     abstract val layoutRes: Int
@@ -19,11 +20,12 @@ abstract class BaseFragment : Fragment() {
     abstract fun onReady()
 
     lateinit var mContext: Context
-
+    lateinit var mActivity: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = requireContext()
+        mActivity = requireActivity() as T
         onExtractArguments()
     }
 
