@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.league_detail_activity.*
 import kotlinx.coroutines.launch
 import me.hafizdwp.kade_submission_5.R
 import me.hafizdwp.kade_submission_5.base.BaseActivity
+import me.hafizdwp.kade_submission_5.base.BasePagerAdapter
 import me.hafizdwp.kade_submission_5.data.model.LeagueData
 import me.hafizdwp.kade_submission_5.data.source.remote.responses.LeagueDetailResponse
 import me.hafizdwp.kade_submission_5.data.source.remote.responses.LeagueTableResponse
@@ -17,6 +18,7 @@ import me.hafizdwp.kade_submission_5.data.source.remote.responses.MatchResponse
 import me.hafizdwp.kade_submission_5.ui.home.recentmatches.RecentMatchesAdapter
 import me.hafizdwp.kade_submission_5.ui.home.upmatches.UpmatchesAdapter
 import me.hafizdwp.kade_submission_5.ui.matches.MatchDetailActivity
+import me.hafizdwp.kade_submission_5.ui.team.TeamDetailBannerFragment
 import me.hafizdwp.kade_submission_5.utils.ResultState
 import me.hafizdwp.kade_submission_5.utils.extentions.gone
 import me.hafizdwp.kade_submission_5.utils.extentions.obtainViewModel
@@ -47,6 +49,7 @@ class LeagueDetailActivity : BaseActivity(), LeagueDetailActionListener {
     lateinit var mClubrankAdapter: ClubrankAdapter
     lateinit var mUpmatchesAdapter: UpmatchesAdapter
     lateinit var mRecentAdapter: RecentMatchesAdapter
+    lateinit var mContentAdapter: BasePagerAdapter
 
     var listRecentMatches = arrayListOf<MatchResponse>()
     var listUpmatchesData = arrayListOf<MatchResponse>()
@@ -65,6 +68,19 @@ class LeagueDetailActivity : BaseActivity(), LeagueDetailActionListener {
         }
 
         setupObserver()
+
+        //
+        // Setup content adapter
+        //
+        mContentAdapter = BasePagerAdapter(supportFragmentManager)
+        repeat(5) {
+            mContentAdapter.addFragment(
+                    fragment = TeamDetailBannerFragment.newInstance("https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/grid/original/3739_exactly.png"),
+                    title = it.toString()
+            )
+        }
+        vpContent.adapter = mContentAdapter
+        tabContent.setupWithViewPager(vpContent)
 
         //
         // Setup Recent Adapter

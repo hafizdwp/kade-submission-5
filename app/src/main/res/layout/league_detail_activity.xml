@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <!-- Card Header -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardHeader"
@@ -88,6 +87,29 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabContent"
+            android:layout_width="0dp"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHeader"
+            app:tabBackground="@color/white"
+            app:tabGravity="fill"
+            app:tabMaxWidth="0dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/colorAccent"
+            app:tabTextAppearance="@style/CustomTextTab" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabContent" />
+
         <!-- Recent Matches -->
         <TextView
             android:id="@+id/textRecentLabel"
@@ -100,6 +122,7 @@
             android:text="@string/recent_matches"
             android:textColor="@color/fontPrimary"
             android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardHeader" />
 
@@ -111,6 +134,7 @@
             android:clipToPadding="false"
             android:nestedScrollingEnabled="false"
             android:paddingEnd="@dimen/dimens_12dp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textRecentLabel"
@@ -128,6 +152,7 @@
             android:text="Upcoming Matches"
             android:textColor="@color/fontPrimary"
             android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerRecent" />
 
@@ -139,6 +164,7 @@
             android:clipToPadding="false"
             android:nestedScrollingEnabled="false"
             android:paddingEnd="@dimen/dimens_12dp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textUpMatchesLabel" />
@@ -155,6 +181,7 @@
             android:text="Club Ranks"
             android:textColor="@color/fontPrimary"
             android:textSize="@dimen/size_24sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recyclerUpMatches" />
 
@@ -164,6 +191,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimens_12dp"
             android:nestedScrollingEnabled="false"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textClubRankLabel" />
